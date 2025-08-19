@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All About Sounds.PH – Checkout</title>
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; padding: 20px; }
+    .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    label { display: block; margin: 12px 0 6px; font-weight: bold; }
+    input[type="text"], input[type="tel"], textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { margin-top: 20px; padding: 10px 15px; }
+    .thank-you { display: none; text-align: center; padding: 20px; background: #e6ffe6; border: 1px solid #b2d8b2; border-radius: 6px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>All About Sounds.PH – Checkout</h2>
+    <form id="checkoutForm" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSd19pHkRbB_s1WVKaMKId4pW79uSi8pWg-08QXIgw7dkCQ4Ow/formResponse" target="hidden_iframe" onsubmit="showThankYou()">
+      
+      <label>Choose Package *</label>
+      <label><input type="radio" name="entry.991224144" value="Package 1 – ₱1,500" required> Package 1 – ₱1,500</label>
+
+      <label>Full Name *</label>
+      <input type="text" name="entry.579742713" placeholder="Your full name" required>
+
+      <label>Contact Number *</label>
+      <input type="tel" name="entry.1134943787" placeholder="09XXXXXXXXX or +639XXXXXXXXX" pattern="^(09\\d{9}|\\+639\\d{9})$" required>
+
+      <label>Complete Address *</label>
+      <textarea name="entry.376477499" placeholder="Street, Barangay, City/Province" required></textarea>
+
+      <label>Nearest Landmark *</label>
+      <input type="text" name="entry.363529948" placeholder="e.g., Beside the barangay hall" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="thank-you" id="thankYouMsg">
+      🎉 Thank you! Your response has been submitted successfully.
+    </div>
+
+    <!-- Hidden iframe to prevent redirect -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </div>
+
+  <script>
+    function showThankYou() {
+      // Wait a short while to ensure submission is sent
+      setTimeout(function(){
+        document.getElementById('checkoutForm').style.display = 'none';
+        document.getElementById('thankYouMsg').style.display = 'block';
+      }, 500);
+    }
+  </script>
+</body>
+</html>
